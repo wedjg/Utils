@@ -2,6 +2,7 @@ package utils;
 
 /**
  * Twitter 开源的 Snowflake 算法
+ * <br>依赖于机器时间，如果时钟重拨可能会导致id重复
  * @author : Liao Jiajian
  * @date : 2019/05/06
  */

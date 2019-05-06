@@ -1,11 +1,7 @@
 package utils;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 字符串工具类
@@ -22,14 +18,33 @@ public final class StrUtil {
 
     /**
      * 字符串判空
-     * <br>当字符串为null、空格时都会返回false
+     * <br>当字符串为null、空格时都会返回true
+     * @param str
+     * @return
+     */
+    public static boolean isNullOrEmpty(String str) {
+        return str == null || str.trim().length() == 0;
+    }
+
+    /**
+     * 字符串判空
+     * <br>当且仅当字符串为null时返回true
+     * @param str
+     * @return
+     */
+    public static boolean isNull(String str) {
+        return str == null;
+    }
+
+    /**
+     * 字符串判空
+     * <br>当字符串为空格或者""时返回true
      * @param str
      * @return
      */
     public static boolean isEmpty(String str) {
-        return str == null || str.trim().length() == 0;
+        return !isNull(str) && str.trim().length() == 0;
     }
-
 
     /**
      * 判断字符串是否为纯数字，不含空格
@@ -37,7 +52,7 @@ public final class StrUtil {
      * @return
      */
     public static boolean isNumeric(String str) {
-        if (isEmpty(str)) {
+        if (isNullOrEmpty(str)) {
             return false;
         }
         char[] ch = str.toCharArray();
@@ -69,7 +84,7 @@ public final class StrUtil {
      * @return
      */
     public static boolean isDate(String str, String type) {
-        if (isEmpty(str)) {
+        if (isNullOrEmpty(str)) {
             return false;
         }
         boolean result = true;

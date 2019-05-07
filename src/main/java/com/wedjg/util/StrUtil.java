@@ -1,5 +1,6 @@
 package com.wedjg.util;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -51,7 +52,7 @@ public final class StrUtil {
      * @param str
      * @return
      */
-    public static boolean isNumeric(String str) {
+    public static boolean isInteger(String str) {
         if (isNullOrEmpty(str)) {
             return false;
         }
@@ -60,6 +61,21 @@ public final class StrUtil {
             if (!Character.isDigit(c)) {
                 return false;
             }
+        }
+        return true;
+    }
+
+    /**
+     * 判断字符串是否为数字
+     * <br>通过判断能否转化为BigDecimal来判断是否为数字
+     * @param str
+     * @return
+     */
+    public static boolean isNumeric(String str) {
+        try {
+            new BigDecimal(str);
+        } catch (Exception e) {
+            return false;
         }
         return true;
     }

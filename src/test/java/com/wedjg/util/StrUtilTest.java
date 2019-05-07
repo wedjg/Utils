@@ -1,6 +1,5 @@
 package com.wedjg.util;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -39,14 +38,25 @@ public class StrUtilTest {
     }
 
     @Test
+    public void isInteger() {
+        assertTrue(StrUtil.isInteger("123"));
+        assertTrue(StrUtil.isInteger("0"));
+        assertFalse(StrUtil.isInteger(""));
+        assertFalse(StrUtil.isInteger(null));
+        assertFalse(StrUtil.isInteger(" "));
+        assertFalse(StrUtil.isInteger("50.2"));
+        assertFalse(StrUtil.isInteger("2,000"));
+    }
+
+    @Test
     public void isNumeric() {
         assertTrue(StrUtil.isNumeric("123"));
         assertTrue(StrUtil.isNumeric("0"));
+        assertTrue(StrUtil.isNumeric("33.33"));
+        assertTrue(StrUtil.isNumeric("-33.33"));
+        assertFalse(StrUtil.isNumeric("2,000.00"));
         assertFalse(StrUtil.isNumeric(""));
-        assertFalse(StrUtil.isNumeric(null));
         assertFalse(StrUtil.isNumeric(" "));
-        assertFalse(StrUtil.isNumeric("50.2"));
-        assertFalse(StrUtil.isNumeric("2,000"));
     }
 
     @Test

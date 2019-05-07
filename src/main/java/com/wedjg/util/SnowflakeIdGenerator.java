@@ -141,9 +141,15 @@ public class SnowflakeIdGenerator {
         return System.currentTimeMillis();
     }
     //====================================================Test Case=====================================================
+
+    /**
+     * 测试
+     * @param args
+     */
     public static void main(String[] args) {
+        int times = 1000;
         SnowflakeIdGenerator idWorker = new SnowflakeIdGenerator(0, 0);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < times; i++) {
             long id = idWorker.nextId();
             System.out.println(Long.toBinaryString(id));
             System.out.println(id);

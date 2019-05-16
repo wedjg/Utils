@@ -11,11 +11,25 @@ import java.text.SimpleDateFormat;
  */
 public final class StrUtil {
 
-    /**
-     * 构造方法
+	/**
+	 * 常用字符-逗号
+	 */
+	public static final String COMMA = ",";
+	
+	/**
+	 * 常用字符-空格
+	 */
+	public static final String BLANK = " ";
+	
+	/**
+     * 常用字符-无
      */
-    private StrUtil() {
-    }
+	public static final String EMPTY = "";
+    
+	/**
+     * 构造器的工具类私有化
+     */
+    private StrUtil() {}
 
     /**
      * 字符串判空
